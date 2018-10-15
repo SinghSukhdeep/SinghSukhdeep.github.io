@@ -2,8 +2,9 @@
   <h1>Sukhdeep Singh</h1>
   <div class="flex-spacer"></div>
   <div class="btn-group">
-    <button type="button" mat-button>Contact</button>
+    <button type="button" mat-button (click)="showContactForm()">Contact</button>
     <a mat-button role="button" href="//www.linkedin.com/in/sukhdeepsingh12/" target="_blank">LinkedIn</a>
+    <a mat-button role="button" href="https://github.com/SinghSukhdeep" target="_blank">Github</a>
   </div>
 </mat-toolbar>
 <main class="mat-app-background">
@@ -44,6 +45,64 @@
           <img src="../assets/nginx.png" alt="NGINX" (click)="openDialog('nginx')">
         </div>
       </div>
+    </section>
+
+    <div class="section">
+      <h2 class="center">Contact Me</h2>
+    </div>
+    <section class="section center" id="contact-form">
+      <mat-card>
+        <form [formGroup]="contactForm" novalidate>
+          <div class="form-control-container">
+            <mat-form-field class="full-width" appearance="standard">
+              <mat-label>Name</mat-label>
+              <input matInput type="text" formControlName="name" required />
+              <mat-error *ngIf="contactForm.controls.name.hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-control-container">
+            <mat-form-field class="full-width" appearance="standard">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="email" required />
+              <mat-error *ngIf="contactForm.controls.email.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="contactForm.controls.email.hasError('email')">
+                Email is <strong>invalid</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-control-container">
+            <mat-form-field class="full-width" appearance="standard">
+              <mat-label>Phone</mat-label>
+              <input matInput type="tel" formControlName="phoneNumber" />
+            </mat-form-field>
+          </div>
+
+          <div class="form-control-container">
+            <mat-form-field class="full-width" appearance="standard">
+              <mat-label>Message</mat-label>
+              <textarea matInput formControlName="message" required></textarea>
+              <mat-error *ngIf="contactForm.controls.message.hasError('required')">
+                Message is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="center-flex">
+            <mat-spinner *ngIf="showProgressSpinner"></mat-spinner>
+          </div>
+          <div class="form-control-container">
+            <button type="button" mat-raised-button color="accent" [disabled]="!contactForm.valid || showProgressSpinner" (click)="sendContactRequest()">
+              <mat-icon class="icon-left">save</mat-icon>
+              Save
+            </button>
+          </div>
+        </form>
+      </mat-card>
     </section>
   </div>
 </main>

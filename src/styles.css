@@ -120,14 +120,26 @@ small {
 .feature-section img:hover {
   transform: scale(1.2);
 }
+
 .top-nav {
   position: fixed;
   top: 0;
   left: 0;
 }
+
 .top-nav .btn-group {
   margin-left: auto;
 }
+
 main {
   margin-top: 64px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.center-flex {
+  display: flex;
+  justify-content: center;
 }

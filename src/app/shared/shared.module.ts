@@ -16,7 +16,10 @@ import {
     MatSlideToggleModule,
     MatRadioModule,
     MatToolbarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
 } from '@angular/material';
 
 @NgModule({
@@ -37,7 +40,10 @@ import {
         MatSlideToggleModule,
         MatRadioModule,
         MatToolbarModule,
-        MatDialogModule
+        MatDialogModule,
+        MatCardModule,
+        MatSnackBarModule,
+        MatProgressSpinnerModule
     ],
     exports: [
         CommonModule,
@@ -55,7 +61,10 @@ import {
         MatSlideToggleModule,
         MatRadioModule,
         MatToolbarModule,
-        MatDialogModule
+        MatDialogModule,
+        MatCardModule,
+        MatSnackBarModule,
+        MatProgressSpinnerModule
     ]
 })
 export class SharedModule {
